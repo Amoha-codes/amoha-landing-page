@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Amoha</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <!-- <link href="assets/img/favicon.png" rel="icon" /> -->
+    <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" /> -->
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="/static/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/static/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/static/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="/static/assets/css/main.css" rel="stylesheet" />
+  </head>
+
+  <body class="index-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container-fluid position-relative d-flex align-items-center justify-content-between"
+      >
+        <a
+          href="index.html"
+          class="logo d-flex align-items-center me-auto me-xl-0"
+        >
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="./blacklogo.png" alt="" />
+
+          <h1 class="sitename">Amoha Codes</h1>
+
+          <!-- <span>.</span> -->
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="#hero" class="active">Home<br /></a>
+            </li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Courses</a></li>
+            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+            <!-- <li><a href="#team">Team</a></li> -->
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd75FkHMpbH3ySoitrkULH6Gy_kEsoJE24EZqv-vA7ZH9CLKA/viewform?usp=sharing&ouid=116712214331334242582">Internships</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted" href="index.html#about">Get Started</a>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section">
+        <div
+          class="container d-flex flex-column justify-content-center align-items-center text-center position-relative mt-5"
+          data-aos="zoom-out"
+        >
+          <img
+            src="{{url_for('static',path='assets/img/blacklogo.png')}}"
+            class="img-fluid animated"
+            alt="logo"
+            height="200px"
+          />
+          <h1>Welcome to <span>Amoha</span></h1>
+          <p>
+            "Empowering Dreams Through Education"
+          </p>
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- About Section -->
+      <section id="about" class="about section mt-5">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>About Us</h2>
+          <p>
+            At Amoha, we believe in the transformative power of education to
+            shape brighter futures. Guided by our motto, "Empowering Dreams
+            Through Education," we are dedicated to fostering a love for
+            learning and equipping students with the tools they need to succeed
+            in an ever-evolving world.At Amoha, we are dedicated to shaping the
+            future of technology enthusiasts by providing a robust platform for
+            learning and growth. Whether you're a beginner exploring the
+            fundamentals or an advanced learner diving into complex topics, we
+            cater to everyone passionate about technology and programming.
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up">
+          <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-5">
+              <div class="about-img">
+                <img
+                  src="{{url_for('static',path='assets/img/ebooks-book-online-learning-education-illustration-444x512-5s91mrm0.png')}}"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <h3 class="pt-0 pt-lg-5">
+                Our Main offerings include:
+              </h3>
+
+              <!-- Tabs -->
+              <ul class="nav nav-pills mb-3">
+                <li>
+                  <a
+                    class="nav-link active"
+                    data-bs-toggle="pill"
+                    href="#about-tab1"
+                    >Web Development</a
+                  >
+                </li>
+                <li>
+                  <a class="nav-link" data-bs-toggle="pill" href="#about-tab2"
+                    >Data Structure & Algorithm</a
+                  >
+                </li>
+                <li>
+                  <a class="nav-link" data-bs-toggle="pill" href="#about-tab3"
+                    >Competitive programming</a
+                  >
+                </li>
+                <li></li>
+              </ul>
+
+              <!-- End Tabs -->
+
+              <!-- Tab Content -->
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="about-tab1">
+                  <p class="fst-italic">
+                    Learn to build dynamic and responsive websites using
+                    cutting-edge technologies such as HTML, CSS, React, Node.js,
+                    and beyond. Our curriculum is designed to help you create
+                    projects that stand out.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>
+                      Master the Fundamentals of Web Development
+                    </h4>
+                  </div>
+                  <p>
+                    Lay a strong foundation in web development by learning the
+                    building blocks of the web: HTML, CSS, and JavaScript. Our
+                    beginner-friendly modules ensure you: Understand the
+                    structure and styling of web pages. Create responsive
+                    layouts for seamless viewing across devices. Implement
+                    interactivity using JavaScript to enhance user experiences.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Build Dynamic Applications with Modern Frameworks</h4>
+                  </div>
+                  <p>
+                    Step into the world of advanced web development by mastering
+                    popular frameworks and libraries such as React, Next.js, and
+                    Vue.js. Learn to: Create single-page applications (SPAs)
+                    with reusable components. Optimize performance and implement
+                    server-side rendering. Seamlessly integrate APIs to build
+                    feature-rich web applications.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Backend Development and Full-Stack Integration</h4>
+                  </div>
+                  <p>
+                    Expand your skillset by diving into backend technologies
+                    like Node.js and Express.js, and learn how to manage
+                    databases using MongoDB and SQL. In this section, you’ll:
+                    Build secure and efficient server-side applications.
+                  </p>
+                </div>
+                <!-- End Tab 1 Content -->
+
+                <div class="tab-pane fade" id="about-tab2">
+                  <p class="fst-italic">
+                    Crack coding interviews and excel in competitive programming
+                    with our structured and interactive DSA tutorials.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>
+                      Build a Strong Foundation in Data Structures
+                    </h4>
+                  </div>
+                  <p>
+                    Begin your journey by mastering the core data structures
+                    that form the backbone of programming. Learn to: Understand
+                    and implement essential data structures like arrays, linked
+                    lists, stacks, queues, and hash maps. Analyze the strengths,
+                    weaknesses, and use cases of each data structure.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Master Algorithms for Problem-Solving</h4>
+                  </div>
+                  <p>
+                    Develop the skills to solve problems effectively by learning
+                    key algorithms, including: Sorting and Searching: Gain
+                    proficiency in algorithms like Merge Sort, Quick Sort, and
+                    Binary Search. Dynamic Programming (DP): Learn to break down
+                    complex problems into simpler sub-problems.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Crack Competitive Programming and Coding Interviews</h4>
+                  </div>
+                  <p>
+                    Eius alias aut cupiditate. Dolor voluptates animi ut
+                    blanditiis quos nam. Magnam officia aut ut alias quo
+                    explicabo ullam esse. Sunt magnam et dolorem eaque magnam
+                    odit enim quaerat. Vero error error voluptatem eum.
+                  </p>
+                </div>
+                <!-- End Tab 2 Content -->
+
+                <div class="tab-pane fade" id="about-tab3">
+                  <p class="fst-italic">
+                    For those with a passion for solving challenging problems,
+                    our Competitive Programming track is designed to help you
+                    excel in coding competitions and interviews. You’ll learn:
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>
+                      Strengthen Your Problem-Solving Foundation
+                    </h4>
+                  </div>
+                  <p>
+                    Competitive programming begins with a strong grasp of
+                    fundamental concepts. In this stage, you will: Learn key
+                    topics such as time complexity, greedy algorithms, and
+                    dynamic programming (DP). Master essential data structures
+                    like arrays, trees, graphs, and hash maps. Develop the
+                    ability to break down problems and approach solutions
+                    systematically.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Excel on Popular Competitive Platforms</h4>
+                  </div>
+                  <p>
+                    Get ready to compete on leading coding platforms like
+                    Codeforces, CodeChef, LeetCode, and HackerRank. Our
+                    resources help you: Solve platform-specific problems with
+                    tailored guidance. Participate in contests to improve speed
+                    and accuracy under time constraints.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Prepare for Success in Contests and Interviews</h4>
+                  </div>
+                  <p>
+                    Competitive programming is not just about contests—it also
+                    prepares you for real-world challenges. In this stage,
+                    you’ll: Learn contest strategies like prioritizing problems,
+                    time management, and debugging efficiently. Participate in
+                    mock contests to simulate real-time environments. Gain
+                    confidence for coding interviews with problems that test
+                    both your technical and problem-solving skills.
+                  </p>
+                </div>
+                <!-- End Tab 3 Content -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <section id="features" class="features section">
+        <h1 class="d-flex justify-content-center">Why Choose Amoha ?</h1>
+        <p class="d-flex justify-content-center">
+          At Amoha, we are more than just an educational platform – we are your
+          partners in growth and success. Here’s why thousands of learners trust
+          us:
+        </p>
+        <div class="container" data-aos="fade-up">
+          <ul class="nav nav-tabs row gy-4 d-flex">
+            <li class="nav-item col-6 col-md-4 col-lg-2">
+              <a
+                class="nav-link active show"
+                data-bs-toggle="tab"
+                data-bs-target="#features-tab-1"
+              >
+                <i class="bi bi-binoculars" style="color: #0dcaf0;"></i>
+                <h4>Expert-Led Learning</h4>
+              </a>
+            </li>
+            <!-- End Tab 1 Nav -->
+
+            <li class="nav-item col-6 col-md-4 col-lg-2">
+              <a
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#features-tab-2"
+              >
+                <i class="bi bi-box-seam" style="color: #6610f2;"></i>
+                <h4>Comprehensive Curriculum</h4>
+              </a>
+            </li>
+            <!-- End Tab 2 Nav -->
+
+            <li class="nav-item col-6 col-md-4 col-lg-2">
+              <a
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#features-tab-3"
+              >
+                <i class="bi bi-brightness-high" style="color: #20c997;"></i>
+                <h4>Flexible Learning Modes</h4>
+              </a>
+            </li>
+            <!-- End Tab 3 Nav -->
+
+            <li class="nav-item col-6 col-md-4 col-lg-2">
+              <a
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#features-tab-4"
+              >
+                <i class="bi bi-command" style="color: #df1529;"></i>
+                <h4>Practical, Hands-On Approach</h4>
+              </a>
+            </li>
+            <!-- End Tab 4 Nav -->
+
+            <li class="nav-item col-6 col-md-4 col-lg-2">
+              <a
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#features-tab-5"
+              >
+                <i class="bi bi-easel" style="color: #0d6efd;"></i>
+                <h4>Personalized Support</h4>
+              </a>
+            </li>
+            <!-- End Tab 5 Nav -->
+
+            <li class="nav-item col-6 col-md-4 col-lg-2">
+              <a
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#features-tab-6"
+              >
+                <i class="bi bi-map" style="color: #fd7e14;"></i>
+                <h4>Career-Ready Skills</h4>
+              </a>
+            </li>
+            <!-- End Tab 6 Nav -->
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade active show" id="features-tab-1">
+              <div class="row gy-4">
+                <div
+                  class="col-lg-8 order-2 order-lg-1"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  <!-- <h3>Modinest</h3> -->
+                  <p class="fst-italic">
+                    
+                  </p>
+                  <ul>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Tailored Teaching:
+                      Our instructors adapt their teaching methods to suit
+                      beginners and advanced learners alike, ensuring clarity
+                      and engagement.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Mentorship Beyond
+                      Classes: Receive ongoing guidance, career advice, and
+                      support to help you achieve your goals beyond the course
+                      curriculum.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Industry-Driven Insights: Learn cutting-edge techniques and
+                    technologies directly from professionals actively working in
+                    the field.
+                    </li>
+                    <li>
+                     
+                </div>
+                <div
+                  class="col-lg-4 order-1 order-lg-2 text-center"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <img
+                    src="{{url_for('static',path='assets/img/features-1.svg')}}"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- End Tab Content 1 -->
+
+            <div class="tab-pane fade" id="features-tab-2">
+              <div class="row gy-4">
+                <div class="col-lg-8 order-2 order-lg-1">
+                  
+                 
+                  <ul>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Beginner to Advanced: Our curriculum covers everything from foundational concepts to advanced topics, making it suitable for learners at all levels.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Structured Modules: Courses are broken into easy-to-follow modules, ensuring a clear and progressive learning experience.
+
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Industry-Relevant Content: Stay ahead with a curriculum designed to meet the current demands of the tech and education sectors.
+                    </li>
+                    
+                  </ul>
+                </div>
+                <div class="col-lg-4 order-1 order-lg-2 text-center">
+                  <img
+                    src="{{url_for('static',path='assets/img/features-2.svg')}}"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- End Tab Content 2 -->
+
+            <div class="tab-pane fade" id="features-tab-3">
+              <div class="row gy-4">
+                <div class="col-lg-8 order-2 order-lg-1">
+                
+                  <ul>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Online or Offline Options: Choose between online classes for convenience or offline sessions for hands-on guidance.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Self-Paced Learning: Access recorded sessions and course materials anytime, anywhere, to suit your schedule.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Live Sessions: Interact with instructors during live classes to resolve queries in real-time.
+                    </li>
+                  </ul>
+                  
+                </div>
+                <div class="col-lg-4 order-1 order-lg-2 text-center">
+                  <img
+                    src="{{url_for('static',path='assets/img/features-3.svg')}}"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- End Tab Content 3 -->
+
+            <div class="tab-pane fade" id="features-tab-4">
+              <div class="row gy-4">
+                <div class="col-lg-8 order-2 order-lg-1">
+                  <ul>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Real-World Projects: Work on industry-standard projects to gain practical experience and build an impressive portfolio.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Interactive Exercises: Engage in coding challenges, case studies, and problem-solving sessions for a deeper understanding of concepts.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Tools and Technologies: Gain proficiency with the latest tools and platforms used in professional environments.
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-4 order-1 order-lg-2 text-center">
+                  <img
+                    src="{{url_for('static',path='assets/img/features-4.svg')}}"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- End Tab Content 4 -->
+
+            <div class="tab-pane fade" id="features-tab-5">
+              <div class="row gy-4">
+                <div class="col-lg-8 order-2 order-lg-1">
+                  
+                  <ul>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> One-on-One Mentorship: Get individual attention to address your unique learning needs and challenges.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Dedicated Q&A Support: Clear your doubts quickly with our responsive support team and discussion forums.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Progress Tracking: Regular assessments and feedback help monitor your growth and focus on improvement areas.
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-4 order-1 order-lg-2 text-center">
+                  <img
+                    src="assets/img/features-5.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- End Tab Content 5 -->
+
+            <div class="tab-pane fade" id="features-tab-6">
+              <div class="row gy-4">
+                <div class="col-lg-8 order-2 order-lg-1">
+                  
+                  <ul>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Job-Oriented Training: Acquire skills that align with industry requirements to boost your employability.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Certification: Earn recognized certificates that add value to your resume and showcase your expertise.
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i> Interview Preparation: Enhance your job prospects with mock interviews, resume-building sessions, and career counseling.
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-4 order-1 order-lg-2 text-center">
+                  <img
+                    src="assets/img/features-6.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- End Tab Content 6 -->
+          </div>
+        </div>
+      </section>
+      <!-- /Features Section -->
+
+      <!-- Services Section -->
+      <section id="services" class="services section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Our Courses</h2>
+          <p>
+            Unleash your potential with a wide range of courses designed to
+            empower your future.
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-5">
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img src="./C.png" class="img-fluid" alt="" />
+                </div>
+                <div class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-activity"></i>
+                  </div>
+                  <!-- link the page -->
+                  <a href="#" class="stretched-link">
+                    <h3>C & C++</h3>
+                  </a>
+                  <p>
+                    Learn baisc to Advance C++. Master the fundamentals of
+                    programming, memory management, and object-oriented design.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img src="./1.jpg" class="img-fluid" alt="" />
+                </div>
+                <div class="details position-relative">
+                  jpg<div class="icon">
+                    <i class="bi bi-broadcast"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Java</h3>
+                  </a>
+                  <p>
+                    Master the Java programming language from basic to advance
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img src="{{url_for('static',path='/assests/pythonlogo.png')}}" class="img-fluid" alt="" />
+                </div>
+                <div class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-easel"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Python</h3>
+                  </a>
+                  <p>
+                    Learn Python programming language which implies machine
+                    learning and many important libraries
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img
+                    src="{{url_for('static',path='/assests/is_web_development_good_career.jpg.jxl')}}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-bounding-box-circles"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Web Development</h3>
+                  </a>
+                  <p>
+                    Lay a strong foundation in web development by learning the
+                    building blocks of the web development.
+                  </p>
+                  <a href="#" class="stretched-link"></a>
+                </div>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img
+                    src="./1627884166eKgVi1YLix.png"
+                    class="img-fluid"
+                    alt=""
+                  />
+                <{{url_for('static',path='assets/img/iv>
+                <div')}} class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-calendar4-week"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Data Structure and Algorithm</h3>
+                  </a>
+                  <p>
+                    Master DSA to Unlock Your Path to FAANG Success!
+                  </p>
+                  <a href="#" class="stretched-link"></a>
+                </div>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="700"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img
+                    src="./0*BXGYcwc2DPJB0_Ut.png"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-chat-square-text"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Competitive Programming</h3>
+                  </a>
+                  <p>
+                    Competitive programming begins with a strong grasp of
+                    fundamental concepts.
+                  </p>
+                  <a href="#" class="stretched-link"></a>
+                </div>
+              </div>
+            </div>
+            <!-- End Service Item -->
+          </div>
+        </div>
+      </section>
+      <!-- /Services Section -->
+
+      <!-- Faq Section -->
+      <section id="faq" class="faq section">
+        <div class="container-fluid">
+          <div class="row gy-4">
+            <div
+              class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1"
+            >
+              <div
+                class="content px-xl-5"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <h3>
+                  <span>Frequently Asked </span><strong>Questions</strong>
+                </h3>
+              </div>
+
+              <div
+                class="faq-container px-xl-5"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div class="faq-item faq-active">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>What courses does Amoha offer?</h3>
+                  <div class="faq-content">
+                    <p>
+                      We offer courses in programming languages, web development
+                      (frontend and backend), competitive programming, data
+                      structures and algorithms, and more.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+
+                <!-- End Faq item-->
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>
+                    Do you provide certifications ?
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Yes, upon successful completion of a course, students
+                      receive a certificate that highlights their skills and
+                      achievements.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+                <!-- End Faq item-->
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>
+                    What is the duration of the courses ?
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Course durations vary, typically ranging from 4 weeks to
+                      12 weeks, depending on the topic and depth of the
+                      material.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>
+                    Can I access course material after the course is complete ?
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Yes, you can access to the course material is provided to
+                      all enrolled students.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>
+                    How are online classes conducted ?
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Online classes are conducted via live sessions and
+                      pre-recorded modules, ensuring flexibility and an
+                      interactive learning experience.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>
+                    What if I miss a live class ?
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      All live classes are recorded and uploaded for you to
+                      access anytime at your convenience.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>
+                    How do I enroll in a course ?
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Visit our website, select the desired course, and follow
+                      the easy enrollment process. You can also contact our
+                      support team for assistance.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+
+                <!-- End Faq item-->
+              </div>
+            </div>
+
+            <div class="col-lg-5 order-1 order-lg-2">
+              <img
+                src="./faqs-concept-illustration_114360-6685.jpg.avif"
+                class="img-fluid"
+                alt=""
+                data-aos="zoom-in"
+                data-aos-delay="100"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Faq Section -->
+
+      <!-- Team Section -->
+<!--            <!-- /Team Section --> -->
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p></p>
+        </div>
+        <!-- End Section Title -->
+
+        <!-- End Google Maps -->
+
+        <div class="container" data-aos="fade">
+          <div class="row gy-5 gx-lg-5">
+            <div class="col-lg-4">
+              <div class="info">
+                <h3>Get in touch</h3>
+                <p>
+                  Feel free to contact
+                </p>
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-geo-alt flex-shrink-0"></i>
+                  <div>
+                    <h4>Location:</h4>
+                    <p>Delhi Road</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-envelope flex-shrink-0"></i>
+                  <div>
+                    <h4>Email:</h4>
+                    <p>Amohacodes@gmail.com</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-phone flex-shrink-0"></i>
+                  <div>
+                    <h4>Call:</h4>
+                    <p>+91 9760584433</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <form
+                action="/contact"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your Name"
+                      required=""
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="Your Email"
+                      required=""
+                    />
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                    required=""
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    placeholder="Message"
+                    required=""
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+            <!-- End Contact Form -->
+          </div>
+        </div>
+      </section>
+      <!-- /Contact Section -->
+    </main>
+
+    <footer id="footer" class="footer dark-background">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+              <a href="index.html" class="logo d-flex align-items-center">
+                <span class="sitename">Amoha Codes</span>
+              </a>
+              <div class="footer-contact pt-3">
+                <p>Delhi Road</p>
+                <p>Moradabad, 244001</p>
+                <p class="mt-3">
+                  <strong>Phone:</strong> <span>+91 9760584433</span>
+                </p>
+                <p>
+                  <strong>Email:</strong>
+                  <span>amohacodes@gmail.com</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">Courses</a></li>
+                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Data Structure and Algorithm</a></li>
+                <li><a href="#">Competitive Programming</a></li>
+                <li><a href="#">Programming Languages</a></li>
+                <li><a href="#">Career Counseling</a></li>
+              </ul>
+            </div>
+
+
+            
+
+            <!-- <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Hic solutasetp</h4>
+              <ul>
+                <li><a href="#">Molestiae accusamus iure</a></li>
+                <li><a href="#">Excepturi dignissimos</a></li>
+                <li><a href="#">Suscipit distinctio</a></li>
+                <li><a href="#">Dilecta</a></li>
+                <li><a href="#">Sit quas consectetur</a></li>
+              </ul>
+            </div> -->
+
+            <!-- <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Nobis illum</h4>
+              <ul>
+                <li><a href="#">Ipsam</a></li>
+                <li><a href="#">Laudantium dolorum</a></li>
+                <li><a href="#">Dinera</a></li>
+                <li><a href="#">Trodelas</a></li>
+                <li><a href="#">Flexo</a></li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright text-center">
+        <div
+          class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center"
+        >
+          <div
+            class="d-flex flex-column align-items-center align-items-lg-start"
+          >
+            <div>
+              © Copyright <strong><span>Amoha Codes</span></strong
+              >. All Rights Reserved
+            </div>
+            <div class="credits">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+              Designed by
+              <b>Rajan Sharma</b>
+            </div>
+          </div>
+
+          <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/assets/vendor/php-email-form/validate.js"></script>
+    <script src="/static/assets/vendor/aos/aos.js"></script>
+    <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/static/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="/static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="/static/assets/js/main.js"></script>
+  </body>
+</html>
