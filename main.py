@@ -8,7 +8,8 @@ from app.db.session import get_session,init_db,engine
 from sqlalchemy.ext.asyncio import AsyncSession
 from contextlib import asynccontextmanager
 from sqladmin import Admin,ModelView
-from app.db.models import Contact,Internships
+from app.db.models import Contact,Internships,User
+from app.utils.utils import MyAuth
 
 try:
     templates = Jinja2Templates('./app/templates/')
@@ -41,10 +42,30 @@ class InternshipView(ModelView,model=Internships):
     can_edit = True
     can_delete = True
     can_view_details = True
+
+class UserView(ModelView,model=User):
+    column_list=[User.id,User.name,User.email,User.is_admin,User.status,User.created_at,User.updated_at,User.password]
+    can_create = True
+    can_edit = True
+    can_delete = True
+    can_view_details = True
+    async def on_model_change(self, data, model, is_created, request):
+        try:
+            print(data)
+            print(is_created)
+            print(model.password)
+        except Exception as e:
+            print(e)
+
+
+
+
+
     
 
 admin.add_view(ContactView)
 admin.add_view(InternshipView)
+admin.add_view(UserView)
 
 
 app.mount('/static',StaticFiles(directory="app\\static"),name="static")
@@ -81,6 +102,6 @@ async def post_contact(name:str= Form(),email:str=Form(),subject:str=Form(),mess
             raise HTTPException(400,"Bad request")
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app",port=8080)
+    uvicorn.run("main:app",port=8000)
 
 
