@@ -4,9 +4,11 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.db.schemas import ContactForm
 from app.db.models import Contact
-from app.db.session import get_session,init_db
+from app.db.session import get_session,init_db,engine
 from sqlalchemy.ext.asyncio import AsyncSession
 from contextlib import asynccontextmanager
+from sqladmin import Admin,ModelView
+from app.db.models import Contact,Internships
 
 try:
     templates = Jinja2Templates('./app/templates/')
@@ -23,6 +25,28 @@ async def lifespan(app: FastAPI):
         print(str(e))
 
 app = FastAPI(lifespan=lifespan)
+admin = Admin(app,engine)
+
+class ContactView(ModelView,model=Contact):
+    column_list=['id','name','subject','message','created_at']
+    column_labels={'created_at':'date'}
+    can_create = True
+    can_edit = True
+    can_delete = True
+    can_view_details = True
+
+class InternshipView(ModelView,model=Internships):
+    column_list=['id','name','description','pay']
+    can_create = True
+    can_edit = True
+    can_delete = True
+    can_view_details = True
+    
+
+admin.add_view(ContactView)
+admin.add_view(InternshipView)
+
+
 app.mount('/static',StaticFiles(directory="app\\static"),name="static")
 
 @app.get("/")
