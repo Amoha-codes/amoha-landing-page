@@ -1,15 +1,17 @@
+from app.db.enums import Status
 from fastapi import FastAPI,HTTPException,Form,Depends
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.db.schemas import ContactForm
 from app.db.models import Contact
-from app.db.session import get_session,init_db,engine
+from app.db.session import get_session,init_db,engine,async_session
 from sqlalchemy.ext.asyncio import AsyncSession
 from contextlib import asynccontextmanager
 from sqladmin import Admin,ModelView
 from app.db.models import Contact,Internships,User
-from app.utils.utils import MyAuth
+from app.utils.utils import MyAuth, hash_password
+from datetime import datetime
 
 try:
     templates = Jinja2Templates('./app/templates/')
@@ -26,14 +28,16 @@ async def lifespan(app: FastAPI):
         print(str(e))
 
 app = FastAPI(lifespan=lifespan)
-admin = Admin(app,engine)
+admin = Admin(app,engine,authentication_backend=MyAuth(secret_key="test"))
+# admin = Admin(app,engine)
 
 class ContactView(ModelView,model=Contact):
     column_list=['id','name','subject','message','created_at']
     column_labels={'created_at':'date'}
-    can_create = True
+    form_edit_rules=['status']
+    can_create = False
     can_edit = True
-    can_delete = True
+    can_delete = False
     can_view_details = True
 
 class InternshipView(ModelView,model=Internships):
@@ -44,18 +48,20 @@ class InternshipView(ModelView,model=Internships):
     can_view_details = True
 
 class UserView(ModelView,model=User):
-    column_list=[User.id,User.name,User.email,User.is_admin,User.status,User.created_at,User.updated_at,User.password]
+    column_list=[User.id,User.name,User.email,User.is_admin,User.status,User.created_at,User.updated_at]
+    form_edit_rules = ['name','email','status','is_admin']
     can_create = True
     can_edit = True
-    can_delete = True
+    can_delete = False
     can_view_details = True
     async def on_model_change(self, data, model, is_created, request):
         try:
             print(data)
-            print(is_created)
-            print(model.password)
+            if is_created:
+                data['password'] = hash_password(data['password'])
         except Exception as e:
             print(e)
+    
 
 
 
@@ -68,7 +74,7 @@ admin.add_view(InternshipView)
 admin.add_view(UserView)
 
 
-app.mount('/static',StaticFiles(directory="app\\static"),name="static")
+app.mount('/static',StaticFiles(directory="app//static"),name="static")
 
 @app.get("/")
 async def get_home(request:Request):
@@ -86,7 +92,7 @@ async def post_contact(name:str= Form(),email:str=Form(),subject:str=Form(),mess
         try:
             #validating the data using pydantic
             data_model = ContactForm(
-                name=name,email=email,subject=subject,message=message
+                name=name,email=email,subject=subject,message=message,status=Status.NEW.name
             )
             #inserting data into contact orm model
             data_in_db = Contact(

@@ -1,6 +1,8 @@
-from sqlalchemy.orm import declarative_base,Mapped,mapped_column
 
-from sqlalchemy import String,Integer,DateTime,Float,func,Boolean
+from sqlalchemy.orm import declarative_base,Mapped,mapped_column
+from app.db.enums import Status
+from sqlalchemy import String,Integer,DateTime,Float,func,Boolean,ForeignKey,Enum
+from sqlalchemy.orm import relationship
 from datetime import datetime
 
 Base = declarative_base()
@@ -13,6 +15,7 @@ class Contact(Base):
     subject:Mapped[str] = mapped_column(String,nullable= False)
     email:Mapped[str] = mapped_column(String,nullable= False)
     message:Mapped[str] = mapped_column(String,nullable= False)
+    status:Mapped[Status] =mapped_column(Enum(Status),default=Status.NEW.name)
     created_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now())
     updated_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now(),onupdate=func.now(),server_onupdate=func.now())
     deleted_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)
@@ -40,3 +43,14 @@ class User(Base):
     updated_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now(),onupdate=func.now(),server_onupdate=func.now())
     deleted_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)
 
+
+class AuthTokens(Base):
+    __tablename__ = 'auth_tokens'
+    id:Mapped[int] = mapped_column(Integer,primary_key=True,autoincrement=True,index=True)
+    token:Mapped[str] = mapped_column(String,nullable= False)
+    user_id:Mapped[int] = mapped_column(ForeignKey('users.id'),nullable=False)
+    users:Mapped[User] = relationship(User,lazy='selectin',cascade="delete")
+    expiry:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    created_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now())
+    updated_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now(),onupdate=func.now(),server_onupdate=func.now())
+    deleted_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)

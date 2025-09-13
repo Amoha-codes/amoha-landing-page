@@ -5,7 +5,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 from app.utils.config import get_settings
 from app.db.models import Base
-from contextlib import asynccontextmanager
 settings= get_settings()
 
 #creating sesssion 
@@ -13,7 +12,7 @@ engine = create_async_engine(settings.DB_URL,future=True)
 async_session: async_sessionmaker | Any = async_sessionmaker(engine, class_=AsyncSession,expire_on_commit=False)
 
 #a async func to get session when needed
-@asynccontextmanager
+
 async def get_session() -> AsyncGenerator[AsyncSession | Any, Any]:
     async with async_session() as session:
         try:
@@ -28,4 +27,23 @@ async def get_session() -> AsyncGenerator[AsyncSession | Any, Any]:
 async def init_db():
     async with engine.begin() as session:
         await session.run_sync(Base.metadata.create_all)
+
+# for get_db.............................................
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import sessionmaker
+from contextlib import asynccontextmanager
+from app.db.session import engine  # adjust based on where your engine is defined
+
+# assuming you're using SQLAlchemy async engine
+async_session = sessionmaker(
+    engine, class_=AsyncSession, expire_on_commit=False
+)
+
+async def get_db():
+    async with async_session() as session:
+        try:
+            yield session
+        finally:
+            await session.close()
+# .......................................................
 
