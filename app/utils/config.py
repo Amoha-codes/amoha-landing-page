@@ -3,7 +3,7 @@ from functools import lru_cache
 import os
 from pathlib import Path
 #base class for all the env variables
-env_file = Path.resolve(__file__).parent.parent/".env"
+env_file = Path(__file__).resolve().parent.parent/".env"
 class Config(BaseSettings):
     DB_URL:str = os.environ.get('DB_URL')
 
