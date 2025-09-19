@@ -1,13 +1,14 @@
 from pydantic_settings import BaseSettings,SettingsConfigDict
 from functools import lru_cache
-
+import os
+from pathlib import Path
 #base class for all the env variables
-
+env_file = Path.resolve(__file__).parent.parent/".env"
 class Config(BaseSettings):
-    DB_URL:str
+    DB_URL:str = os.environ.get('DB_URL')
 
     model_config=SettingsConfigDict(
-        env_file=".env",
+        env_file=".env" if os.path.exists('.env') else env_file,
         env_file_encoding="utf-8",
         extra="allow",
         case_sensitive=False,

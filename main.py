@@ -19,7 +19,7 @@ Base_path = Path.resolve(__file__)
 print(Base_path)
 
 try:
-    templates = Jinja2Templates(str(Base_path/"app"/"templates"))
+    templates = Jinja2Templates((Base_path/"app"/"templates").__str__())
 except Exception as e:
     raise e
 
