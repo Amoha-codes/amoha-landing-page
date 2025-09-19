@@ -15,7 +15,7 @@ from datetime import datetime
 from sqlalchemy import select
 from pathlib import Path
 
-Base_path = Path(__file__).resolve()
+Base_path = Path(__file__).resolve().parent
 print(Base_path)
 
 try:
