@@ -9,7 +9,7 @@ from fastapi_storages.integrations.sqlalchemy import FileType
 from pathlib import Path
 Base = declarative_base()
 base_path = Path(__file__).resolve().parent
-storage = FileSystemStorage((base_path/"static"/"assests"/"img").__str__())
+storage = FileSystemStorage("./static/assests/img")
 
 #orm models defined here these model will talk with db 
 class Contact(Base):

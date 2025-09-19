@@ -1,0 +1,1 @@
+storage = FileSystemStorage("./static/assests/img")
