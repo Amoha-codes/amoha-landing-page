@@ -4,8 +4,11 @@ from app.db.enums import Status
 from sqlalchemy import String,Integer,DateTime,Float,func,Boolean,ForeignKey,Enum
 from sqlalchemy.orm import relationship
 from datetime import datetime
+from fastapi_storages import FileSystemStorage
+from fastapi_storages.integrations.sqlalchemy import FileType
 
 Base = declarative_base()
+storage = FileSystemStorage(path="/static/assets/img")
 
 #orm models defined here these model will talk with db 
 class Contact(Base):
@@ -51,6 +54,18 @@ class AuthTokens(Base):
     user_id:Mapped[int] = mapped_column(ForeignKey('users.id'),nullable=False)
     users:Mapped[User] = relationship(User,lazy='selectin',cascade="delete")
     expiry:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    created_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now())
+    updated_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now(),onupdate=func.now(),server_onupdate=func.now())
+    deleted_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class Courses(Base):
+    __tablename__="courses"
+    id:Mapped[int] = mapped_column(Integer,primary_key=True,autoincrement=True,index=True)
+    name:Mapped[str] = mapped_column(String,nullable= False)
+    description:Mapped[str] = mapped_column(String,nullable = False)
+    image:Mapped[str] = mapped_column(FileType(storage=storage),nullable=False)
+    icon:Mapped[str] = mapped_column(String,nullable=False,server_default="/static/assest/images/c.png")
     created_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now())
     updated_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False,default=datetime.now(),server_default=func.now(),onupdate=func.now(),server_onupdate=func.now())
     deleted_at:Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)

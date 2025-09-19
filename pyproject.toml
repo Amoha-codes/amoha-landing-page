@@ -18,4 +18,5 @@ dependencies = [
     "sqladmin[full]>=0.21.0",
     "bcrypt>=4.3.0",
     "passlib>=1.7.4",
+    "fastapi-storages>=0.3.0",
 ]

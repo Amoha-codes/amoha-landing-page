@@ -1,3 +1,252 @@
+#services .section-title {
+  margin-bottom: 48px;
+}
+
+#services .container {
+  margin-top: 0;
+}
+
+#services .row {
+  margin-top: 0;
+  padding-top: 24px;
+}
+/* Custom: Our Courses Section Alignment */
+#services .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#services .row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 fix columns */
+  gap: 48px 32px;
+  justify-items: center;
+  width: 100%;
+}
+
+#services .service-item {
+  background: var(--surface-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 370px;
+  height: 100%;
+  transition: box-shadow 0.3s;
+  position: relative;
+  margin-top: 36px;
+  width: 100%; /* Equal width for grid */
+}
+
+#services .service-item .img {
+  margin-bottom: 0;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+#services .icon-circle {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+  background: #0ea2bd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+
+#services .service-item h3 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#services .service-item p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--default-color);
+}
+
+#services .service-item:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+}
+
+@media (max-width: 1024px) {
+  #services .row {
+    grid-template-columns: repeat(2, 1fr); /* Tablet पर 2 cards */
+  }
+}
+
+@media (max-width: 768px) {
+  #services .row {
+    grid-template-columns: 1fr; /* Mobile पर 1 card */
+    gap: 24px;
+  }
+  #services .service-item {
+    min-height: 280px;
+    padding: 24px 12px;
+  }
+}
+#services .service-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+}
+#services .icon-circle:hover {
+  background: #e5e9ed; /* hover पर color change */
+}
+#services {
+  background: #f8f9fa;
+  padding: 80px 20px;
+}
+
+/* Make clickable cards look like buttons/links */
+#services .service-item {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none; /* remove underline */
+  color: inherit; /* text color same रहे */
+}
+
+#services .service-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+}
+.course-img {
+  width: 100%;
+  height: 160px;      /* थोड़ा बड़ा height */
+  object-fit: cover;  /* white space नहीं होगा */
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+
+/* Fonts */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Source Sans Pro", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+}
+
+/* Custom: Our Courses Section Alignment 
+#services .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#services .row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 32px;
+  justify-items: center;
+}
+
+#services .service-item {
+  background: var(--surface-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    min-width: 320px;
+    max-width: 370px;
+    min-height: 370px;
+    height: 100%;
+  transition: box-shadow 0.3s;
+  position: relative;
+  margin-top: 36px;
+}
+
+#services .service-item .img {
+  margin-bottom: 0;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+#services .icon-circle {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+  background: #0ea2bd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+
+#services .service-item h3 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#services .service-item p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--default-color);
+}
+
+#services .service-item:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+}
+
+@media (max-width: 768px) {
+  #services .row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  #services .service-item {
+    min-height: 280px;
+    padding: 24px 12px;
+  }
+}*/
 /* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
@@ -2668,28 +2917,7 @@ section,
 .blog-author .author-container {
   background-color: var(--surface-color);
   padding: 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.blog-author img {
-  max-width: 120px;
-  margin-right: 20px;
-}
-
-.blog-author h4 {
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 0px;
-  padding: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
-
-.blog-author .social-links {
-  margin: 0 10px 10px 0;
-}
-
-.blog-author .social-links a {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  box-shadow: 0 4px 16px rgba(0, 0
   margin-right: 5px;
 }
 
@@ -2787,237 +3015,4 @@ section,
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
   font-size: 14px;
   border-radius: 4px;
-  padding: 10px 10px;
-}
-
-.comment-form form input:focus {
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  box-shadow: none;
-  border-color: var(--accent-color);
-}
-
-.comment-form form input::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.comment-form form textarea {
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  border-radius: 4px;
-  padding: 10px 10px;
-  font-size: 14px;
-  height: 120px;
-}
-
-.comment-form form textarea:focus {
-  color: var(--default-color);
-  box-shadow: none;
-  border-color: var(--accent-color);
-  background-color: var(--surface-color);
-}
-
-.comment-form form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.comment-form form .form-group {
-  margin-bottom: 25px;
-}
-
-.comment-form form .btn-primary {
-  border-radius: 4px;
-  padding: 10px 20px;
-  border: 0;
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.comment-form form .btn-primary:hover {
-  color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-.widgets-container {
-  background-color: var(--surface-color);
-  padding: 30px;
-  margin: 60px 0 30px 0;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.widget-title {
-  color: var(--heading-color);
-  font-size: 20px;
-  font-weight: 700;
-  padding: 0;
-  margin: 0 0 20px 0;
-}
-
-.widget-item {
-  margin-bottom: 40px;
-}
-
-.widget-item:last-child {
-  margin-bottom: 0;
-}
-
-.search-widget form {
-  background: var(--background-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  padding: 3px 10px;
-  position: relative;
-  transition: 0.3s;
-}
-
-.search-widget form input[type="text"] {
-  border: 0;
-  padding: 4px;
-  border-radius: 4px;
-  width: calc(100% - 40px);
-  background-color: var(--background-color);
-  color: var(--default-color);
-}
-
-.search-widget form input[type="text"]:focus {
-  outline: none;
-}
-
-.search-widget form button {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  font-size: 16px;
-  padding: 0 15px;
-  margin: -1px;
-  transition: 0.3s;
-  border-radius: 0 4px 4px 0;
-  line-height: 0;
-}
-
-.search-widget form button i {
-  line-height: 0;
-}
-
-.search-widget form button:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-.search-widget form:is(:focus-within) {
-  border-color: var(--accent-color);
-}
-
-.categories-widget ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.categories-widget ul li {
-  padding-bottom: 10px;
-}
-
-.categories-widget ul li:last-child {
-  padding-bottom: 0;
-}
-
-.categories-widget ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  transition: 0.3s;
-}
-
-.categories-widget ul a:hover {
-  color: var(--accent-color);
-}
-
-.categories-widget ul a span {
-  padding-left: 5px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 14px;
-}
-
-.recent-posts-widget .post-item {
-  display: flex;
-  margin-bottom: 15px;
-}
-
-.recent-posts-widget .post-item:last-child {
-  margin-bottom: 0;
-}
-
-.recent-posts-widget .post-item img {
-  width: 80px;
-  margin-right: 15px;
-}
-
-.recent-posts-widget .post-item h4 {
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.recent-posts-widget .post-item h4 a {
-  color: var(--default-color);
-  transition: 0.3s;
-}
-
-.recent-posts-widget .post-item h4 a:hover {
-  color: var(--accent-color);
-}
-
-.recent-posts-widget .post-item time {
-  display: block;
-  font-style: italic;
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.tags-widget {
-  margin-bottom: -10px;
-}
-
-.tags-widget ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.tags-widget ul li {
-  display: inline-block;
-}
-
-.tags-widget ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 14px;
-  padding: 6px 14px;
-  margin: 0 6px 8px 0;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 60%);
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.tags-widget ul a:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  border: 1px solid var(--accent-color);
-}
-
-.tags-widget ul a span {
-  padding-left: 5px;
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-  font-size: 14px;
 }

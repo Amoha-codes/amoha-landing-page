@@ -9,10 +9,10 @@ from app.db.session import get_session,init_db,engine,async_session
 from sqlalchemy.ext.asyncio import AsyncSession
 from contextlib import asynccontextmanager
 from sqladmin import Admin,ModelView
-from app.db.models import Contact,Internships,User
+from app.db.models import Contact,Internships,User,Courses
 from app.utils.utils import MyAuth, hash_password
 from datetime import datetime
-
+from sqlalchemy import select
 try:
     templates = Jinja2Templates('./app/templates/')
 except Exception as e:
@@ -62,6 +62,13 @@ class UserView(ModelView,model=User):
         except Exception as e:
             print(e)
     
+class CourseView(ModelView,model=Courses):
+    column_list=[Courses.id,Courses.name,Courses.description,Courses.image,Courses.created_at,Courses.updated_at]
+    form_edit_rules = ['name','description','image']
+    can_create = True
+    can_edit = True
+    can_delete = True
+    can_view_details = True
 
 
 
@@ -72,15 +79,25 @@ class UserView(ModelView,model=User):
 admin.add_view(ContactView)
 admin.add_view(InternshipView)
 admin.add_view(UserView)
+admin.add_view(CourseView)
 
 
 app.mount('/static',StaticFiles(directory="app//static"),name="static")
 
 @app.get("/")
-async def get_home(request:Request):
+async def get_home(request:Request,db:AsyncSession=Depends(get_session)):
     try:
+        async with db:
+            query = select(Courses)
+            courses= await db.execute(query)
+            courses = courses.scalars().all()
+            
         return templates.TemplateResponse(
-            request,"index.html"
+            request,"index.html",
+            context={
+                'courses':courses
+            }
+            
         )
     except Exception as e:
         print(e)

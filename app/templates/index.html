@@ -581,187 +581,112 @@
         </div>
       </section>
       <!-- /Features Section -->
+       <!--my course-->
+       <section id="services" class="services">
+  <div class="container">
 
-      <!-- Services Section -->
-      <section id="services" class="services section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title mb-5" data-aos="fade-up">
           <h2>Our Courses</h2>
           <p>
-            Unleash your potential with a wide range of courses designed to
-            empower your future.
+            Unleash your potential with a wide range of courses designed to empower your future.
           </p>
         </div>
-        <!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-5">
-            <div
-              class="col-xl-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <div class="service-item">
-                <div class="img">
-                  <img src="./C.png" class="img-fluid" alt="" />
-                </div>
-                <div class="details position-relative">
-                  <div class="icon">
-                    <i class="bi bi-activity"></i>
-                  </div>
-                  <!-- link the page -->
-                  <a href="#" class="stretched-link">
-                    <h3>C & C++</h3>
-                  </a>
-                  <p>
-                    Learn baisc to Advance C++. Master the fundamentals of
-                    programming, memory management, and object-oriented design.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
+    <div class="row">
+      {% if courses %}
 
-            <div
-              class="col-xl-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-delay="300"
-            >
-              <div class="service-item">
-                <div class="img">
-                  <img src="./1.jpg" class="img-fluid" alt="" />
-                </div>
-                <div class="details position-relative">
-                  jpg<div class="icon">
-                    <i class="bi bi-broadcast"></i>
-                  </div>
-                  <a href="#" class="stretched-link">
-                    <h3>Java</h3>
-                  </a>
-                  <p>
-                    Master the Java programming language from basic to advance
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-xl-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-delay="400"
-            >
-              <div class="service-item">
-                <div class="img">
-                  <img src="{{url_for('static',path='/assests/pythonlogo.png')}}" class="img-fluid" alt="" />
-                </div>
-                <div class="details position-relative">
-                  <div class="icon">
-                    <i class="bi bi-easel"></i>
-                  </div>
-                  <a href="#" class="stretched-link">
-                    <h3>Python</h3>
-                  </a>
-                  <p>
-                    Learn Python programming language which implies machine
-                    learning and many important libraries
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-xl-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-delay="500"
-            >
-              <div class="service-item">
-                <div class="img">
-                  <img
-                    src="{{url_for('static',path='/assests/is_web_development_good_career.jpg.jxl')}}"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details position-relative">
-                  <div class="icon">
-                    <i class="bi bi-bounding-box-circles"></i>
-                  </div>
-                  <a href="#" class="stretched-link">
-                    <h3>Web Development</h3>
-                  </a>
-                  <p>
-                    Lay a strong foundation in web development by learning the
-                    building blocks of the web development.
-                  </p>
-                  <a href="#" class="stretched-link"></a>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-xl-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-delay="600"
-            >
-              <div class="service-item">
-                <div class="img">
-                  <img
-                    src="./1627884166eKgVi1YLix.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                <{{url_for('static',path='assets/img/iv>
-                <div')}} class="details position-relative">
-                  <div class="icon">
-                    <i class="bi bi-calendar4-week"></i>
-                  </div>
-                  <a href="#" class="stretched-link">
-                    <h3>Data Structure and Algorithm</h3>
-                  </a>
-                  <p>
-                    Master DSA to Unlock Your Path to FAANG Success!
-                  </p>
-                  <a href="#" class="stretched-link"></a>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-xl-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-delay="700"
-            >
-              <div class="service-item">
-                <div class="img">
-                  <img
-                    src="./0*BXGYcwc2DPJB0_Ut.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details position-relative">
-                  <div class="icon">
-                    <i class="bi bi-chat-square-text"></i>
-                  </div>
-                  <a href="#" class="stretched-link">
-                    <h3>Competitive Programming</h3>
-                  </a>
-                  <p>
-                    Competitive programming begins with a strong grasp of
-                    fundamental concepts.
-                  </p>
-                  <a href="#" class="stretched-link"></a>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-          </div>
+      {% for course in courses%}
+      <a href="{{course.id}}" class="service-item">
+        <div class="icon-circle">
+          <img src="{{course.icon}}" alt="C++ Icon" width="36">
         </div>
-      </section>
+        <!-- New Course Image -->
+        <img src="{{course.image}}" alt="C++ Course" class="course-img">
+
+        <h3>{{course.name}}</h3>
+        <p>{{course.description}}</p>
+      </a>
+      {% endfor %}
+      {% else %}
+
+      <!-- Course 1 -->
+      <a href="/courses/cpp" class="service-item">
+        <div class="icon-circle">
+          <img src="https://img.icons8.com/?size=100&id=44328&format=png&color=000000" alt="C++ Icon" width="36">
+        </div>
+        <!-- New Course Image -->
+        <img src="/static/assets/img/C.png" alt="C++ Course" class="course-img">
+
+        <h3>C & C++</h3>
+        <p>Learn basic to Advance C++. Master the fundamentals of programming, memory management, and object-oriented design.</p>
+      </a>
+
+      <!-- Course 2 -->
+      <a href="/courses/java" class="service-item">
+        <div class="icon-circle">
+          <img src="https://img.icons8.com/?size=100&id=No6QClfCevdr&format=png&color=000000" alt="Java Icon" width="36">
+        </div>
+        <img src="/static/assets/img/1.jpg" alt="Java Course" class="course-img">
+
+        <h3>Java</h3>
+        <p>Master the Java programming language from basic to advance.</p>
+      </a>
+
+      <!-- Course 3 -->
+      <a href="/courses/python" class="service-item">
+        <div class="icon-circle">
+          <img src="https://img.icons8.com/?size=100&id=12592&format=png&color=000000" alt="Python Icon" width="36">
+        </div>
+  <img src="\static\assets\pythonlogo.png" alt="Python Course" class="course-img">
+
+        <h3>Python</h3>
+        <p>Learn Python programming language which implies machine learning and many important libraries.</p>
+      </a>
+
+      <!-- Course 4 -->
+      <a href="/courses/webdev" class="service-item">
+        <div class="icon-circle">
+          <img src="https://img.icons8.com/?size=100&id=DzQFf09l3D1p&format=png&color=000000" alt="Web Dev Icon" width="36">
+        </div>
+        <img src="/static/assets/img/images-2.jpeg" alt="Web Dev Course" class="course-img">
+
+        <h3>Web Development</h3>
+        <p>Lay a strong foundation in web development by learning the building blocks of the web.</p>
+      </a>
+
+      <!-- Course 5 -->
+      <a href="/courses/dsa" class="service-item">
+        <div class="icon-circle">
+          <img src="https://img.icons8.com/?size=100&id=Z6FWdz4vArGB&format=png&color=000000" alt="DSA Icon" width="36">
+        </div>
+        <img src="C:\Users\dell\Downloads\Amoha-codes-phase-one-main\app\static\assets\img\DSA.png" alt="DSA Course" class="course-img">
+
+        <h3>Data Structure and Algorithm</h3>
+        <p>Master DSA to Unlock Your Path to FAANG Success!</p>
+      </a>
+
+      <!-- Course 6 -->
+      <a href="/courses/cp" class="service-item">
+        <div class="icon-circle">
+          <img src="https://img.icons8.com/?size=100&id=116826&format=png&color=000000" alt="Competitive Icon" width="36">
+        </div>
+        <img src="C:\Users\dell\Downloads\Amoha-codes-phase-one-main\app\static\assets\img\CP.png" alt="CP Course" class="course-img">
+
+        <h3>Competitive Programming</h3>
+        <p>Competitive programming begins with a strong grasp of fundamental concepts.</p>
+      </a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+
+       <!--my course end-->
+
+      <!-- Services Section -->
+
+      
       <!-- /Services Section -->
 
       <!-- Faq Section -->
