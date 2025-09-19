@@ -13,8 +13,13 @@ from app.db.models import Contact,Internships,User,Courses
 from app.utils.utils import MyAuth, hash_password
 from datetime import datetime
 from sqlalchemy import select
+from pathlib import Path
+
+Base_path = Path.resolve(__file__)
+print(Base_path)
+
 try:
-    templates = Jinja2Templates('./app/templates/')
+    templates = Jinja2Templates(str(Base_path/"app"/"templates"))
 except Exception as e:
     raise e
 

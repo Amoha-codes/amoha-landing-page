@@ -6,9 +6,10 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from fastapi_storages import FileSystemStorage
 from fastapi_storages.integrations.sqlalchemy import FileType
-
+from pathlib import Path
 Base = declarative_base()
-storage = FileSystemStorage(path="/static/assets/img")
+base_path = Path.resolve(__file__).parent
+storage = FileSystemStorage(str(base_path/"static"/"assests"/"img"))
 
 #orm models defined here these model will talk with db 
 class Contact(Base):
