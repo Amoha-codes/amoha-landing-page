@@ -167,6 +167,8 @@ async def post_contact(name:str= Form(),email:str=Form(),subject:str=Form(),mess
             raise HTTPException(400,"Bad request")
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app",port=8000,host="127.0.0.1")
+    from app.utils.config import get_settings
+    settings=get_settings()
+    uvicorn.run("main:app",port=settings.PORT,host=settings.HOST)
 
 

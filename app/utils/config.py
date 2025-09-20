@@ -6,6 +6,8 @@ from pathlib import Path
 env_file = Path(__file__).resolve().parent.parent/".env"
 class Config(BaseSettings):
     DB_URL:str = os.environ.get('DB_URL')
+    PORT:int = os.environ.get('PORT')
+    HOST:str = os.environ.get('HOST')
 
     model_config=SettingsConfigDict(
         env_file=".env" if os.path.exists('.env') else env_file,
