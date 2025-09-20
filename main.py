@@ -14,6 +14,36 @@ from app.utils.utils import MyAuth, hash_password
 from datetime import datetime
 from sqlalchemy import select
 from pathlib import Path
+import os
+# 
+
+from fastapi import FastAPI, HTTPException
+
+app = FastAPI()
+
+# Dummy course database
+courses = {
+    1: {"id": 1, "title": "Python Basics", "description": "Learn Python from scratch"},
+    2: {"id": 2, "title": "FastAPI Mastery", "description": "Build APIs with FastAPI"},
+    3: {"id": 3, "title": "Data Science 101", "description": "Intro to Data Science"}
+}
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to Amoha Landing Page API"}
+
+@app.get("/courses")
+def get_courses():
+    return {"courses": list(courses.values())}
+
+@app.get("/courses/{course_id}")
+def get_course(course_id: int):
+    if course_id not in courses:
+        raise HTTPException(status_code=404, detail="Course not found")
+    return courses[course_id]
+
+
+# 
 
 Base_path = Path(__file__).resolve().parent
 print(Base_path)
@@ -86,7 +116,14 @@ admin.add_view(InternshipView)
 admin.add_view(UserView)
 admin.add_view(CourseView)
 
+# 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, "app", "static")
 
+print(BASE_DIR)
+print(STATIC_DIR)
+
+# 
 app.mount('/static',StaticFiles(directory="app//static"),name="static")
 
 @app.get("/")
@@ -130,6 +167,6 @@ async def post_contact(name:str= Form(),email:str=Form(),subject:str=Form(),mess
             raise HTTPException(400,"Bad request")
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app",port=10000,host="0.0.0.0")
+    uvicorn.run("main:app",port=8000,host="127.0.0.1")
 
 
