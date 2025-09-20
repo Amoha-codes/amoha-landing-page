@@ -168,6 +168,7 @@ async def post_contact(name:str= Form(),email:str=Form(),subject:str=Form(),mess
 if __name__ == "__main__":
     import uvicorn
     from app.utils.config import get_settings
+    # from app.utils.utils imporu ja
     settings=get_settings()
     uvicorn.run("main:app",port=settings.PORT,host=settings.HOST)
 
